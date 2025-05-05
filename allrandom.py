@@ -76,7 +76,6 @@ def get_killer_addons(killer_item, all_addons):
 def display_character(character, role, all_addons=None):
     print(f"\n🎮 Random {role.title()} Selected 🎮")
     
-    # Color the killer name in blue and survivor name in green
     if role == "killer":
         print(f"{Fore.CYAN}Name: {Style.BRIGHT}{character['name']}")
     else:
@@ -163,14 +162,13 @@ def main():
 
         result = normalize_input("\nDid you win or lose? (win or lose): ", result_map)
 
-        if result == "win" and role == "killer":
-            print("\n🎉 Great! You get a new random character!")
-            checked_killers.add(character_key)
-            save_checked_killers(checked_killers)
-            pause_with_dots()
-            continue
-        elif result == "win":
-            print(f"\n🎉 Great! Killers done: {len(checked_killers)}. Generating new one:")
+        if result == "win":
+            if role == "killer":
+                print(f"\n🎉 Great! Killers done: {len(checked_killers)}. Generating new one:")
+                checked_killers.add(character_key)
+                save_checked_killers(checked_killers)
+            else:
+                print(f"\n🎉 Great! Generating new one:")
             pause_with_dots()
             continue
         else:
