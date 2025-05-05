@@ -170,7 +170,7 @@ def main():
             pause_with_dots()
             continue
         elif result == "win":
-            print("\n🎉 Great! You get a new random character!")
+            print(f"\n🎉 Great! Killers done: {len(checked_killers)}. Generating new one:")
             pause_with_dots()
             continue
         else:
