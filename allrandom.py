@@ -96,6 +96,7 @@ def display_character(character, role, all_addons=None):
                         "uncommon": Fore.GREEN,
                         "rare": Fore.BLUE,
                         "veryrare": Fore.MAGENTA,
+                        "visceral": Fore.RED,
                         "ultrarare": Fore.RED
                     }
                     rarity = addon.get('rarity', 'common').lower()
