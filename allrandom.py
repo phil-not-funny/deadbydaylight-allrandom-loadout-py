@@ -93,8 +93,8 @@ def display_character(character, role, all_addons=None):
                     # Color addon rarity (use color codes for rarities)
                     rarity_color = {
                         "common": Fore.WHITE,
-                        "uncommon": Fore.YELLOW,
-                        "rare": Fore.GREEN,
+                        "uncommon": Fore.GREEN,
+                        "rare": Fore.BLUE,
                         "veryrare": Fore.MAGENTA,
                         "ultrarare": Fore.RED
                     }
@@ -164,8 +164,8 @@ def main():
 
         if result == "win":
             if role == "killer":
-                print(f"\n🎉 Great! Killers done: {len(checked_killers)}. Generating new one:")
                 checked_killers.add(character_key)
+                print(f"\n🎉 Great! Killers done: {len(checked_killers)}. Generating new one:")
                 save_checked_killers(checked_killers)
             else:
                 print(f"\n🎉 Great! Generating new one:")
@@ -173,6 +173,7 @@ def main():
             continue
         else:
             delete_save_file()
+            checked_killers = set()
             print("\n❌ You lost! All characters have been reset.")
             decision = normalize_input("Do you wish to restart or quit? (restart or quit): ", decision_map)
             if decision == "restart":
